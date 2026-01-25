@@ -1,12 +1,13 @@
 <?php
-namespace App\Database;
-use App\Config\Config;
+namespace App\Pdo;
+
 use PDO;
 use PDOException;
 use Exception;
 use Generator;
-class Database
-{   
+use App\Pdo\Config;
+class db
+{  
     public $pdo;
     private array $params = [];
     private string $query = '';
@@ -25,10 +26,27 @@ class Database
     private string $prefix = '';
     private bool $transaction = false;
     private array $lastError = [];
-    private string $lastErrorCode = ''; 
-  
+    private string $lastErrorCode = '';
+
     public function __construct()
     {
+        $config = Config::getDB();
+        
+        $dsn = sprintf(
+            "%s:host=%s;dbname=%s;port=%s;charset=%s",
+            $config['type'], $config['host'], $config['dbname'], $config['port'], $config['charset']
+        );
+
+        try {
+            $this->pdo = new PDO($dsn, $config['username'], $config['password'], [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ]);
+        } catch (PDOException $e) {
+            throw new Exception("Bağlantı Hatası: " . $e->getMessage());
+        }
+    }
         // Config sınıfından verileri çekiyoruz
         $config = Config::getDB();
         
