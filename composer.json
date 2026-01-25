@@ -1,0 +1,14 @@
+{
+    "name": "indirbid/pdo-class-database",
+    "description": "Özel PDO Veritabanı Sınıfı - indirbid",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\Pdo\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}
