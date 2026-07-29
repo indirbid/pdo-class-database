@@ -16,7 +16,7 @@ Modern PHP 8.2+ projeleri için geliştirilmiş; güvenli, hızlı ve nesne yön
 
 ## Proje Klasör Yapısı
 
-```text
+## text
 pdo-class-database/
 ├── src/
 │   ├── PdoDb.php          # PdoDb sınıfı
@@ -26,10 +26,10 @@ pdo-class-database/
 Kurulum
 Projeyi Composer ile dahil edebilir veya src/ klasörünü doğrudan projenize ekleyebilirsiniz:
 
-```Bash
+## Bash
 composer require indirbid/pdo-class-database
 
-```Kullanım Kılavuzu
+## Kullanım Kılavuzu
 1. Veritabanı Bağlantısı (PdoDb)
 Uygulamanızın başlangıç noktasında PdoDb sınıfını başlatın[cite: 2]:
 
