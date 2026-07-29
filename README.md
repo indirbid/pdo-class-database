@@ -1,4 +1,4 @@
-# PDO Class Database
+PDO Class Database
 
 Modern PHP 8.2+ projeleri için geliştirilmiş; güvenli, hızlı ve nesne yönelimli (Active Record & Query Builder) hafif bir PDO veritabanı kütüphanesidir[cite: 1, 2].
 
@@ -13,27 +13,29 @@ Modern PHP 8.2+ projeleri için geliştirilmiş; güvenli, hızlı ve nesne yön
 * **Statement Caching:** Yüksek performans için hazırlanan sorguların önbelleklenmesi.
 
 ---
+## Kurulum
+Projeyi Composer ile dahil edebilir veya src/ klasörünü doğrudan projenize ekleyebilirsiniz:
+
+## Bash
+composer require indirbid/pdo-class-database  
 
 ## Proje Klasör Yapısı
 
-## text
+```text
 pdo-class-database/
 ├── src/
 │   ├── PdoDb.php          # PdoDb sınıfı
 │   └── Model.php          # dbObject, Collection, Table, Column sınıfları
 ├── composer.json          # Paket yapılandırması
 └── README.md              # Açıklama ve kullanım kılavuzu
-Kurulum
-Projeyi Composer ile dahil edebilir veya src/ klasörünü doğrudan projenize ekleyebilirsiniz:
 
-## Bash
-composer require indirbid/pdo-class-database
+--- 
 
 ## Kullanım Kılavuzu
 1. Veritabanı Bağlantısı (PdoDb)
 Uygulamanızın başlangıç noktasında PdoDb sınıfını başlatın[cite: 2]:
 
-```PHP
+PHP
 require 'vendor/autoload.php';
 
 // Veritabanı bağlantısının kurulması
@@ -48,7 +50,7 @@ new PdoDb(
 2. Query Builder Kullanımı
 Tablolar üzerinde doğrudan SQL yazmadan güvenli işlemler yapabilirsiniz[cite: 2]:
 
-```PHP
+PHP
 // Veri Çekme (GET)
 $users = PdoDb::getInstance()
     ->table('users')
@@ -85,7 +87,7 @@ PdoDb::getInstance()
 3. Active Record (Model) Kullanımı
 Modellerinizi dbObject sınıfından türeterek Active Record mimarisini kullanabilirsiniz[cite: 1]:
 
-```PHP
+PHP
 #[Table(name: 'users')]
 class User extends dbObject {
     protected bool $softDeletes = true; // Soft delete aktif
@@ -97,7 +99,7 @@ class User extends dbObject {
     }
 }
 Model İşlevleri:
-```PHP
+PHP
 // Tüm kayıtları getirme
 $users = User::all();
 
@@ -118,5 +120,8 @@ $user = User::find(1);$user->delete();
 
 // Sayfalama (Pagination)
 $paginated = User::paginate(perPage: 15, page: 1);
-Lisans
+
+---
+
+## Lisans
 Bu proje MIT Lisansı ile lisanslanmıştır.
