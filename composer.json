@@ -1,1 +1,24 @@
-
+{
+    "name": "indirbid/pdo-class-database",
+    "description": "Modern PHP 8.2+ uyumlu, Active Record ve akilli Query Builder destekli hafif PDO kutuphanesi.",
+    "type": "library",
+    "keywords": ["pdo", "database", "active-record", "query-builder", "php8"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "indirbid",
+            "email": "indirbid@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "minimum-stability": "stable"
+}
