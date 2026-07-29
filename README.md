@@ -19,4 +19,4 @@ Modern PHP 8.2+ projeleri için geliştirilmiş; güvenli, hızlı ve nesne yön
 Projeyi Composer ile dahil edebilir veya `src/` klasörünü doğrudan projenize ekleyebilirsiniz:
 
 ```bash
-composer require kullaniadi/pdo-class-database
+composer require indirbid/pdo-class-database
